@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sample Card — Made by Kishan Creations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#060606;--card:#0b0b0b;--muted:#9aa0a6;--gold:#d4af37;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{font-family:'Inter',system-ui,Arial,sans-serif;margin:0;background:radial-gradient(circle at 10% 10%, #0b0b0b 0%, #050505 40%, #020202 100%);color:#eef2f6;overflow-x:hidden}
+    .container{max-width:980px;margin:36px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#b8860b);display:flex;align-items:center;justify-content:center;color:#080808;font-weight:800}
+    nav .mini{color:var(--muted);font-size:13px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,0.6);border:1px solid rgba(212,175,55,0.06)}
+    h1{margin:0;font-size:26px}
+    .lead{color:var(--muted);margin-top:8px}
+    .actions{display:flex;gap:10px;margin-top:14px}
+    .btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+    .btn.primary{background:linear-gradient(90deg,var(--gold),#f0c36f);color:#090909}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+    .small{font-size:13px;color:var(--muted)}
+    .particles{position:fixed;inset:0;pointer-events:none;z-index:0}
+    .particle{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:0.12;filter:blur(0.4px)}
+    .envelope-wrap{display:flex;justify-content:center;margin-top:26px}
+    .envelope{width:320px;height:210px;background:linear-gradient(180deg,#0b0b0b,#121212);border-radius:10px;position:relative;overflow:hidden;border:1px solid rgba(212,175,55,0.06)}
+    .flap{position:absolute;left:0;right:0;top:0;height:60%;background:linear-gradient(180deg,#2b1f08,#4b3a0f);clip-path:polygon(0 0,100% 0,50% 70%);transform-origin:top center;transition:transform 700ms cubic-bezier(.2,.9,.3,1)}
+    .envelope.open .flap{transform:translateY(-68%) rotateX(180deg)}
+    .letter{position:absolute;left:16px;right:16px;top:34px;padding:18px;background:linear-gradient(180deg,#fffdfa,#fff8e6);color:#0b0b0b;border-radius:8px;transform:translateY(180px);transition:transform 700ms cubic-bezier(.2,.9,.3,1)}
+    .envelope.open .letter{transform:translateY(18px)}
+    #lockOverlay{position:fixed;inset:0;background:linear-gradient(180deg, rgba(2,2,2,0.9), rgba(2,2,2,0.95));display:flex;align-items:center;justify-content:center;padding:18px;z-index:999;display:none}
+    .lockBox{max-width:780px;width:100%;background:linear-gradient(180deg, rgba(10,10,10,0.98), rgba(6,6,6,0.96));border-radius:12px;padding:18px;border:1px solid rgba(212,175,55,0.06)}
+    .tabs{display:flex;gap:8px;margin-top:12px}
+    .tab{padding:8px 12px;border-radius:8px;background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.02);cursor:pointer}
+    .tab.active{background:linear-gradient(90deg,var(--gold),#f0c36f);color:#080808}
+    .puzzle{display:none}
+    .puzzle.active{display:block}
+    .hint{color:#ffdca8;font-weight:700;margin-top:8px}
+    .success{background:#062e1e;color:#c7f5dd;padding:10px;border-radius:8px;margin-top:10px}
+    .fail{background:#3a0b0b;color:#ffc2c2;padding:10px;border-radius:8px;margin-top:10px}
+    .musicControl{position:fixed;top:18px;right:18px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));backdrop-filter:blur(6px);border-radius:12px;padding:8px 10px;display:flex;align-items:center;gap:8px;box-shadow:0 12px 36px rgba(0,0,0,0.6);z-index:1200;border:1px solid rgba(212,175,55,0.06)}
+    .musicControl button{background:transparent;border:none;cursor:pointer;padding:6px;border-radius:8px}
+    .musicControl input[type=range]{width:120px}
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+    @media(max-width:720px){.envelope{width:92%;height:200px}.musicControl{right:10px;left:10px}}
+  </style>
+</head>
+<body>
+  <div class="particles" aria-hidden="true"></div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">SC</div>
+        <div>
+          <div style="font-weight:800">Sample Card</div>
+          <div class="small">Premium digital lifafa — Made by Kishan Creations</div>
+        </div>
+      </div>
+      <div class="small">Ad-free • Personalized • Trendy</div>
+    </header>
+    <main style="margin-top:18px;z-index:2;position:relative">
+      <section class="card">
+        <h1>Welcome — A Sample Card</h1>
+        <p class="lead">This is a demo card to show how your custom digital lifafa will look. Solve a puzzle to unlock the message inside.</p>
+        <div class="actions">
+          <button class="btn primary" onclick="document.getElementById('lockOverlay').style.display='flex'">Unlock the lifafa</button>
+          <a class="btn ghost" id="downloadBtn">Download HTML</a>
+        </div>
+        <div class="envelope-wrap">
+          <div class="envelope" id="envelope">
+            <div class="flap"></div>
+            <div class="letter" id="letter">
+              <h3 style="margin:0">This is a Sample Card ✨</h3>
+              <p class="small" style="margin-top:8px">You can get a custom one — for birthday wishes, special events, invitations, or love messages. Contact me on Instagram to order.</p>
+              <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+                <a href="https://instagram.com/kishan.kr.109" target="_blank" rel="noopener" class="btn primary">Message on Instagram</a>
+                <button class="btn ghost" onclick="playConfetti()">Surprise</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section style="margin-top:18px" class="card">
+        <h3>About</h3>
+        <p class="small">This is a sample card made to showcase the style and interactive unlock experience. Visitors can request their own custom card from <strong>Kishan Creations</strong> on Instagram: <a href="https://instagram.com/kishan.kr.109" target="_blank" rel="noopener" style="color:var(--gold);font-weight:700">@kishan.kr.109</a>.</p>
+      </section>
+      <footer>
+        Made by <strong>Kishan Creations</strong> • No ads • <span id="year"></span>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Music controls -->
+  <div class="musicControl" role="region" aria-label="Background music control">
+    <button id="playPauseBtn" title="Play / Pause" aria-pressed="false">
+      <svg id="iconPlay" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      <svg id="iconPause" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+    </button>
+    <div class="small" id="musicLabel">Romantic • Calm</div>
+    <input id="volume" type="range" min="0" max="1" step="0.01" value="0.55" aria-label="Volume" />
+    <button class="btn ghost" id="muteBtn">Mute</button>
+  </div>
+
+  <!-- Background audio -->
+  <audio id="bgAudio" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_3f6f9b1d57.mp3?filename=relaxing-ambient-11037.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Puzzle overlay -->
+  <div id="lockOverlay" role="dialog" aria-modal="true">
+    <div class="lockBox">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <h3 style="margin:0">Solve to Enter</h3>
+          <div class="small">Choose any puzzle. Solve to open the lifafa.</div>
+        </div>
+        <div>
+          <button class="btn ghost" onclick="giveHintAll()">Hint</button>
+        </div>
+      </div>
+      <div class="tabs">
+        <div class="tab active" data-tab="riddle" onclick="switchTab(event)">Riddle</div>
+        <div class="tab" data-tab="math" onclick="switchTab(event)">Math</div>
+        <div class="tab" data-tab="slider" onclick="switchTab(event)">Slider</div>
+      </div>
+      <div id="riddle" class="puzzle active">
+        <div class="small">Riddle:</div>
+        <div style="margin-top:8px;font-weight:700">I speak without a mouth and hear without ears. I have nobody, but I come alive with wind. What am I?</div>
+        <div style="margin-top:10px;display:flex;gap:8px">
+          <input id="riddleAnswer" placeholder="Type your answer" style="flex:1;padding:10px;border-radius:10px;border:1px solid var(--glass);background:transparent;color:inherit" />
+          <button class="btn primary" onclick="checkRiddle()">Submit</button>
+        </div>
+        <div id="riddleMsg" aria-live="polite"></div>
+      </div>
+      <div id="math" class="puzzle">
+        <div class="small">Math puzzle:</div>
+        <div style="margin-top:8px">Calculate: <strong>12 × 4 − (5 + 3)</strong></div>
+        <div style="margin-top:10px;display:flex;gap:8px">
+          <input id="mathAnswer" placeholder="Your answer" style="flex:1;padding:10px;border-radius:10px;border:1px solid var(--glass);background:transparent;color:inherit" />
+          <button class="btn primary" onclick="checkMath()">Submit</button>
+        </div>
+        <div id="mathMsg" aria-live="polite"></div>
+      </div>
+      <div id="slider" class="puzzle">
+        <div class="small">Slider puzzle: match the hidden number.</div>
+        <div style="margin-top:12px;display:flex;align-items:center;gap:12px">
+          <input id="unlockSlider" type="range" min="0" max="100" value="0" style="flex:1" oninput="updateSliderValue(this.value)" />
+          <div id="sliderValue" style="width:46px;text-align:center">0</div>
+        </div>
+        <div style="margin-top:8px;display:flex;gap:8px">
+          <button class="btn primary" onclick="checkSlider()">Unlock</button>
+          <button class="btn ghost" onclick="shuffleSlider()">Shuffle</button>
+        </div>
+        <div id="sliderMsg" aria-live="polite"></div>
+      </div>
+      <div style="margin-top:14px;display:flex;gap:8px;justify-content:flex-end">
+        <button class="btn ghost" onclick="closeOverlay()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Year display
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Particles effect
+    (function createParticles(){
+      const wrap = document.querySelector('.particles');
+      for(let i=0;i<36;i++){
+        const p = document.createElement('div');
+        p.className='particle';
+        p.style.left = Math.random()*100 + '%';
+        p.style.top = Math.random()*100 + '%';
+        p.style.width = (Math.random()*8 + 4)+'px';
+        p.style.height = p.style.width;
+        p.style.opacity = (Math.random()*0.22 + 0.06).toFixed(2);
+        wrap.appendChild(p);
+      }
+    })();
+
+    // Download HTML
+    document.getElementById('downloadBtn').addEventListener('click', ()=>{
+      const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'sample-card-kishan.html';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    // Tabs
+    function switchTab(e){
+      const tab = e.target.dataset.tab;
+      document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===tab));
+      document.querySelectorAll('.puzzle').forEach(p=>p.classList.toggle('active', p.id===tab));
+    }
+
+    // Riddle
+    function checkRiddle(){
+      const ans = document.getElementById('riddleAnswer').value.trim().toLowerCase();
+      const msg = document.getElementById('riddleMsg');
+      if(!ans){ msg.innerHTML = '<div class="fail">Please type an answer.</div>'; return; }
+      if(ans === 'echo'){
+        msg.innerHTML = '<div class="success">Correct! Unlocking…</div>';
+        openEnvelope('You unlocked the lifafa with the riddle!');
+      } else { msg.innerHTML = '<div class="fail">Not quite — try again.</div>'; }
+    }
+
+    // Math
+    function checkMath(){
+      const ans = Number(document.getElementById('mathAnswer').value.trim());
+      const msg = document.getElementById('mathMsg');
+      if(!ans && ans!==0){ msg.innerHTML = '<div class="fail">Enter a number.</div>'; return; }
+      if(ans === 40){ msg.innerHTML = '<div class="success">Nice — that\'s right. Unlocking…</div>'; openEnvelope('You unlocked the lifafa with the math puzzle!'); }
+      else { msg.innerHTML = '<div class="fail">Incorrect — try again.</div>'; }
+    }
+
+    // Slider
+    let sliderTarget = 77;
+    function updateSliderValue(v){ document.getElementById('sliderValue').textContent = v; }
+    function shuffleSlider(){ sliderTarget = Math.floor(Math.random()*101); document.getElementById('sliderMsg').innerHTML = '<div class="small">Target shuffled. Find it!</div>'; }
+    function checkSlider(){
+      const val = Number(document.getElementById('unlockSlider').value);
